@@ -1,5 +1,8 @@
 ---
 # yamllint disable rule:line-length
+###############################################################################
+# Remote File
+###############################################################################
 # Explicitly test remote file before applying file changes.
 #
 # Settings permissions via octal (0755) vs symbolic (u=,g=,o=...) results in

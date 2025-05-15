@@ -1,6 +1,7 @@
 ---
 galaxy_info:
-  author: 'r_pufky'
+  role_name: 'lib'
+  author: 'r-pufky'
   description: 'Ansible Utility Library'
   company: 'N/A'
   license: 'AGPL-3.0 License'

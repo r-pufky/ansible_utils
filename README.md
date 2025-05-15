@@ -2,15 +2,15 @@
 Common ansible task patterns that should be supported by ansible.
 
 ## Requirements
-[supported platforms](https://github.com/r-pufky/ansible_utils/blob/main/meta/main.yml)
+[supported platforms](https://github.com/r-pufky/ansible_lib/blob/main/meta/main.yml)
 
-[collections/roles](https://github.com/r-pufky/ansible_utils/blob/main/meta/requirements.yml)
+[collections/roles](https://github.com/r-pufky/ansible_lib/blob/main/meta/requirements.yml)
 
 ## Role Variables
-[defaults](https://github.com/r-pufky/ansible_utils/tree/main/defaults/main/)
+[defaults](https://github.com/r-pufky/ansible_lib/tree/main/defaults/main/)
 
 ## Dependencies
-Part of the [r_pufky.srv](https://github.com/r-pufky/ansible_collection_srv)
+Part of the [r_pufky.deb](https://github.com/r-pufky/ansible_collection_deb)
 collection.
 
 ## Example Playbook
@@ -36,7 +36,7 @@ files.
 ``` yaml
 - name: 'Config | manage required directories'
   ansible.builtin.include_role:
-    name: 'r_pufky.srv.utils'
+    name: 'r_pufky.lib'
     tasks_from: 'remote_file.yml'
   vars:
     file_path: '{{ item }}'
@@ -52,7 +52,7 @@ files.
 ```
 
 ## Development
-Configure [environment](https://github.com/r-pufky/ansible_collection_srv/blob/main/docs/dev/environment/README.md)
+Configure [environment](https://github.com/r-pufky/ansible_collection_docs/blob/main/dev/environment/README.md)
 
 Run all unit tests:
 ``` bash
@@ -66,7 +66,7 @@ Associate pull requests with a submitted bug.
 
 ## License
 [AGPL-3.0 License](https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0)
- [(direct link)](https://github.com/r-pufky/ansible_utils/blob/main/LICENSE)
+ [(direct link)](https://github.com/r-pufky/ansible_lib/blob/main/LICENSE)
 
 ## Author Information
 PGP Fingerprint: [466EEC2B67516C7117C85CE3A0BC35D16698BAB9](https://keys.openpgp.org/vks/v1/by-fingerprint/466EEC2B67516C7117C85CE3A0BC35D16698BAB9)
