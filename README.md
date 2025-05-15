@@ -36,7 +36,7 @@ files.
 ``` yaml
 - name: 'Config | manage required directories'
   ansible.builtin.include_role:
-    name: 'r_pufky.lib'
+    name: 'r-pufky.lib'
     tasks_from: 'remote_file.yml'
   vars:
     file_path: '{{ item }}'
