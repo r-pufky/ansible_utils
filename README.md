@@ -5,7 +5,9 @@ Common ansible task patterns that should be supported by ansible.
 [supported platforms](https://github.com/r-pufky/ansible_utils/blob/main/meta/main.yml)
 
 ## Role Variables
-[defaults](https://github.com/r-pufky/ansible_utils/tree/main/defaults/main/)
+Variables are passed directly to the task being called.
+
+[remote_file](https://github.com/r-pufky/ansible_utils/tree/main/tasks/remote_file.yml)
 
 ## Dependencies
 **galaxy-ng** roles cannot be used independently. Part of
@@ -14,7 +16,7 @@ Common ansible task patterns that should be supported by ansible.
 ## Example Playbook
 See each task for detailed argument list. Tasks must be explicitly called.
 
-### remote_file
+### remote_file (as root)
 Explicitly test remote file before applying file changes.
 
 Remote filesystems typically do not have the same or allow the root user to
@@ -34,7 +36,7 @@ modifies these files.
 ``` yaml
 - name: 'Config | manage required directories'
   ansible.builtin.include_role:
-    name: 'r-pufky.lib.utils'
+    name: 'r_pufky.lib.utils'
     tasks_from: 'remote_file.yml'
   vars:
     file_path: '{{ item }}'
@@ -48,6 +50,8 @@ modifies these files.
     - '/mnt/remote/data/service'
     - '/var/lib/service'
 ```
+
+[remote_file](https://github.com/r-pufky/ansible_utils/tree/main/tasks/remote_file.yml)
 
 ## Development
 Configure [environment](https://github.com/r-pufky/ansible_collection_docs/blob/main/dev/environment/README.md)
