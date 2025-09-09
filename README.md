@@ -53,6 +53,45 @@ modifies these files.
 
 [remote_file](https://github.com/r-pufky/ansible_utils/tree/main/tasks/remote_file.yml)
 
+### atomic_ini (as root)
+Atomically set each line in a given INI file. This is a separate Atomic write
+case compared to `ini_file`.
+
+Used in the case of INI files which contain duplicate keys (e.g. UE4 games).
+INI files that contain duplicate keys violate the INI standard. Files are
+written to temp file with exclusive disabled, then moved into place, preventing
+infinite duplicate key growth in configs.
+
+This should only be used for INI files meeting this specific case; standard
+cases should ALWAYS use community.general.ini_file directly in configuration
+tasks.
+
+See reference for all supported options from `ini_file`.
+
+``` yaml
+- name: 'Config | atomically set ini'
+  ansible.builtin.include_role:
+    name: 'r_pufky.lib.utils'
+    tasks_from: 'atomic_ini.yml'
+  vars:
+    ini:
+      - section: 'OnlineSubsystem'
+        option: 'ServerName'
+        value: 'Conan Exiles Server'
+        state: 'present'
+      - section: 'OnlineSubsystemNull'
+        option: 'ServerName'
+        value: 'Conan Exiles Server'
+        state: 'present'
+    path: '/opt/steam/games/conan/engine.ini'
+    backup: true
+    mode: '0755'
+    owner: 'steam'
+    group: 'steam'
+```
+
+[remote_file](https://github.com/r-pufky/ansible_utils/tree/main/tasks/atomic_file.yml)
+
 ## Development
 Configure [environment](https://github.com/r-pufky/ansible_collection_docs/blob/main/dev/environment/README.md)
 
