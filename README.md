@@ -93,7 +93,7 @@ See reference for all supported options from `ini_file`.
 [remote_file](https://github.com/r-pufky/ansible_utils/tree/main/tasks/atomic_file.yml)
 
 ## Development
-Configure [environment](https://github.com/r-pufky/ansible_collection_docs/blob/main/ansible/environment.md)
+Configure [environment](https://r-pufky.github.io/ansible_collection_docs/ansible/environment)
 
 Run all unit tests:
 ``` bash
